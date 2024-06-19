@@ -1,5 +1,6 @@
 {
-  "name": "vite-template-solid",
+  "homepage": "https://skclusive.github.io/tariff-calculator",
+  "name": "tariff-calculator",
   "version": "0.0.0",
   "description": "",
   "type": "module",
@@ -7,10 +8,13 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build" 
   },
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "solid-devtools": "^0.29.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.13",
