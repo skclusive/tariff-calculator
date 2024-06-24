@@ -1,5 +1,5 @@
 import { For } from "solid-js";
-import { Grid, Button, Typography } from "@suid/material";
+import { Grid, Button, Typography, Box } from "@suid/material";
 import { Center } from "./Center";
 
 export function UnitKeys(props: {
@@ -27,22 +27,27 @@ export function UnitKeys(props: {
   }
 
   return (
-    <Grid container>
-      <Grid item container direction={"row"} spacing={2}>
-        <For each={[7, 8, 9, 4, 5, 6, 1, 2, 3, 0, ".", "C"]}>
-          {(unit) => (
-            <Grid item xs={4}>
-              <Center>
-                <Button onClick={() => enterUnit(unit.toString())}>
-                  <Typography variant="h6" color={"text.secondary"}>
-                    {unit}
-                  </Typography>
-                </Button>
-              </Center>
-            </Grid>
-          )}
-        </For>
+    <Box>
+      <Grid container>
+        <Grid item container direction={"row"} spacing={2}>
+          <For each={[7, 8, 9, 4, 5, 6, 1, 2, 3, 0, ".", "C"]}>
+            {(unit) => (
+              <Grid item xs={4}>
+                <Center>
+                  <Button
+                    color="primary"
+                    onClick={() => enterUnit(unit.toString())}
+                  >
+                    <Typography variant="h6" sx={{ color: "inherit" }}>
+                      {unit}
+                    </Typography>
+                  </Button>
+                </Center>
+              </Grid>
+            )}
+          </For>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 }

@@ -1,4 +1,4 @@
-import { AppBar, Box, Typography } from "@suid/material";
+import { AppBar, Box, Link, Typography } from "@suid/material";
 
 export function Copyright() {
   return (
@@ -6,7 +6,6 @@ export function Copyright() {
       <Box
         sx={{
           py: 0.5,
-          bottom: 0,
           marginTop: 1,
           marginBottom: 1,
         }}
@@ -14,7 +13,15 @@ export function Copyright() {
         <Typography variant="body2" align="center">
           {"Copyright "}
           {new Date().getFullYear()}
-          {" @skclusive. All Rights Reserved."}
+          <Link
+            href="https://x.com/skclusive"
+            target="_blank"
+            sx={{ color: "inherit" }}
+          >
+            {" "}
+            @skclusive
+          </Link>
+          {". All Rights Reserved."}
         </Typography>
       </Box>
     </AppBar>

@@ -21,8 +21,8 @@ export function Results(props: { unit: string; year: string }) {
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell align="right">From Unit</TableCell>
-          <TableCell align="right">To Unit</TableCell>
+          <TableCell align="right">From</TableCell>
+          <TableCell align="right">To</TableCell>
           <TableCell align="right">Units</TableCell>
           <TableCell align="right">Rate</TableCell>
           <TableCell align="right">Amount</TableCell>

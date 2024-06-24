@@ -30,7 +30,9 @@ export const Main = () => {
       }}
     >
       <Grid item>
-        <Header year={currentYear()} setYear={setCurrentYear} />
+        <Container maxWidth={"sm"} sx={{ px: 0 }}>
+          <Header year={currentYear()} setYear={setCurrentYear} />
+        </Container>
       </Grid>
       <Grid
         item
@@ -42,7 +44,7 @@ export const Main = () => {
           overflow: "auto",
         }}
       >
-        <Container maxWidth={"lg"}>
+        <Container maxWidth={"sm"}>
           <Center sx={{ py: 2 }}>
             <Stack spacing={2}>
               <UnitInput unit={toUnit()} setUnit={setCurrentUnit} />
@@ -53,7 +55,9 @@ export const Main = () => {
         </Container>
       </Grid>
       <Grid item>
-        <Copyright />
+        <Container maxWidth={"sm"} sx={{ px: 0 }}>
+          <Copyright />
+        </Container>
       </Grid>
     </Grid>
   );
