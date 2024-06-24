@@ -10,6 +10,7 @@ import {
   useTheme,
 } from "@suid/material";
 import { Brightness4, Brightness7 } from "@suid/icons-material";
+import { Logo } from "./Logo";
 import { ThemeModeContext } from "./ThemeContext";
 
 export function Header(props: {
@@ -36,6 +37,7 @@ export function Header(props: {
   return (
     <AppBar position="static">
       <Toolbar>
+        <Logo sx={{ mr: 1 }} />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Tariff Calculator
         </Typography>
