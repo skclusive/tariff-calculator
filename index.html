@@ -4,11 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <base href="/" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
       rel="stylesheet"
     />
-    <base href="/tariff-calculator/" />
+    <link href="manifest.json" rel="manifest" />
+    <link
+      rel="apple-touch-icon"
+      sizes="512x512"
+      href="android/android-launchericon-512-512.png"
+    />
     <title>Tariff Calculator</title>
     <style>
       html {
@@ -27,10 +33,122 @@
         height: 100%;
       }
     </style>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          var q = {};
+          l.search
+            .slice(1)
+            .split("&")
+            .forEach(function (v) {
+              var a = v.split("=");
+              q[a[0]] = a.slice(1).join("=").replace(/~and~/g, "&");
+            });
+          if (q.p !== undefined) {
+            window.history.replaceState(
+              null,
+              null,
+              l.pathname.slice(0, -1) +
+                (q.p || "") +
+                (q.q ? "?" + q.q : "") +
+                l.hash
+            );
+          }
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div
+        style="
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          style="margin: auto; background: #fff; display: block"
+          width="200px"
+          height="200px"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="31.5331"
+            fill="none"
+            stroke="#e90c59"
+            stroke-width="2"
+          >
+            <animate
+              attributeName="r"
+              repeatCount="indefinite"
+              dur="1s"
+              values="0;40"
+              keyTimes="0;1"
+              keySplines="0 0.2 0.8 1"
+              calcMode="spline"
+              begin="-0.5s"
+            ></animate>
+            <animate
+              attributeName="opacity"
+              repeatCount="indefinite"
+              dur="1s"
+              values="1;0"
+              keyTimes="0;1"
+              keySplines="0.2 0 0.8 1"
+              calcMode="spline"
+              begin="-0.5s"
+            ></animate>
+          </circle>
+          <circle
+            cx="50"
+            cy="50"
+            r="11.0409"
+            fill="none"
+            stroke="#46dff0"
+            stroke-width="2"
+          >
+            <animate
+              attributeName="r"
+              repeatCount="indefinite"
+              dur="1s"
+              values="0;40"
+              keyTimes="0;1"
+              keySplines="0 0.2 0.8 1"
+              calcMode="spline"
+            ></animate>
+            <animate
+              attributeName="opacity"
+              repeatCount="indefinite"
+              dur="1s"
+              values="1;0"
+              keyTimes="0;1"
+              keySplines="0.2 0 0.8 1"
+              calcMode="spline"
+            ></animate>
+          </circle>
+        </svg>
+      </div>
+    </div>
     <script src="./src/index.tsx" type="module"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
   </body>
 </html>
