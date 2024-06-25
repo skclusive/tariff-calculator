@@ -11,7 +11,5 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-setTimeout(() => {
-  root.innerHTML = "";
-  render(() => <App />, root!);
-}, 300);
+root.innerHTML = "";
+render(() => <App />, root!);
