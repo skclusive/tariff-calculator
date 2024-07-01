@@ -58,14 +58,14 @@ export function Chart(props: { units: string }) {
       },
     },
     title: {
-      text: "Differences over the Years",
+      text: `Differences over the Years for Units: ${props.units}`,
       align: "left" as const,
       style: {
         color: theme.palette.text.primary,
       },
     },
     subtitle: {
-      text: "Price Movements",
+      text: "Price Increments",
       align: "left" as const,
       style: {
         color: theme.palette.text.primary,
@@ -118,9 +118,6 @@ export function Chart(props: { units: string }) {
     },
     tooltip: {
       enabled: false,
-      //   x: {
-      //     format: "dd/MM/yy HH:mm",
-      //   },
     },
   }));
 
