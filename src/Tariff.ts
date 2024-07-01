@@ -20,6 +20,13 @@ export type TariffByYear = {
   [year: string]: Tariff;
 };
 
+export type Calculated = {
+  year: number;
+  units: number;
+  amount: number;
+  slabs: SlabResult[];
+};
+
 export const tariffs: TariffByYear = {
   2024: {
     "<=500": [
@@ -53,6 +60,8 @@ export const tariffs: TariffByYear = {
     ],
   },
 };
+
+export const tariffYears = Object.keys(tariffs);
 
 export const runSlab = (units: number, slab: Slab): SlabResult => {
   const { name, from, to, rate } = slab;
@@ -94,12 +103,7 @@ export const calculate = ({
 }: {
   year: number;
   units: number;
-}): {
-  year: number;
-  units: number;
-  amount: number;
-  slabs: SlabResult[];
-} => {
+}): Calculated => {
   const slabs = units <= 500 ? tariffs[year]["<=500"] : tariffs[year][">500"];
   const results = runSlabs(units, slabs);
   return { year, units, slabs: results, amount: sumSlabs(results) };

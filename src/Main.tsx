@@ -1,20 +1,29 @@
-import { createSignal } from "solid-js";
+import { createMemo, createSignal } from "solid-js";
 import { Container, Grid, Stack } from "@suid/material";
 import { Center } from "./Center";
-import { UnitInput } from "./UnitInput";
-import { UnitKeys } from "./UnitKeys";
+import { UnitsInput } from "./UnitsInput";
+import { UnitsKeys } from "./UnitsKeys";
 import { Results } from "./Results";
 import { Header } from "./Header";
 import { Copyright } from "./Copyright";
+import { calculate } from "./Tariff";
+import { Chart } from "./Chart";
 
 export const Main = () => {
   const [currentYear, setCurrentYear] = createSignal("2024");
-  const [currentUnit, setCurrentUnit] = createSignal("");
+  const [currentUnits, setCurrentUnits] = createSignal("");
 
-  function toUnit() {
-    const unit = currentUnit();
+  function toUnits() {
+    const unit = currentUnits();
     return unit.endsWith(".") ? `${unit}0` : unit;
   }
+
+  const result = createMemo(() =>
+    calculate({
+      year: parseInt(currentYear()),
+      units: parseFloat(toUnits() || "0"),
+    })
+  );
 
   return (
     <Grid
@@ -47,9 +56,10 @@ export const Main = () => {
         <Container maxWidth={"sm"}>
           <Center sx={{ py: 2 }}>
             <Stack spacing={2}>
-              <UnitInput unit={toUnit()} setUnit={setCurrentUnit} />
-              <UnitKeys unit={toUnit()} setUnit={setCurrentUnit} />
-              <Results year={currentYear()} unit={toUnit()} />
+              <UnitsInput units={toUnits()} setUnits={setCurrentUnits} />
+              <UnitsKeys units={toUnits()} setUnits={setCurrentUnits} />
+              <Results units={toUnits()} year={currentYear()} />
+              <Chart units={toUnits()} />
             </Stack>
           </Center>
         </Container>

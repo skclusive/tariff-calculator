@@ -10,11 +10,11 @@ import {
 
 import { calculate } from "./Tariff";
 
-export function Results(props: { unit: string; year: string }) {
+export function Results(props: { units: string; year: string }) {
   const result = createMemo(() =>
     calculate({
       year: parseInt(props.year),
-      units: parseFloat(props.unit?.trim() || "0"),
+      units: parseFloat(props.units?.trim() || "0"),
     })
   );
   return (

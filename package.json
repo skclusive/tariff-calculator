@@ -10,7 +10,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist" 
+    "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "devDependencies": {
@@ -24,6 +24,8 @@
     "@suid/icons-material": "^0.7.0",
     "@suid/material": "^0.16.0",
     "@suid/vite-plugin": "^0.2.0",
+    "apexcharts": "^3.49.2",
+    "solid-apexcharts": "^0.3.4",
     "solid-js": "^1.8.11"
   }
 }

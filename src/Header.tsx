@@ -72,7 +72,14 @@ export function Header(props: {
             </For>
           </Menu>
         </Box>
-        <IconButton sx={{ ml: 1 }} onClick={toggleThemeMode} color="inherit">
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={(e) => {
+            e.preventDefault();
+            toggleThemeMode();
+          }}
+          color="inherit"
+        >
           {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
         </IconButton>
       </Toolbar>

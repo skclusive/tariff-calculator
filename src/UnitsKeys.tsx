@@ -2,27 +2,27 @@ import { For } from "solid-js";
 import { Grid, Button, Typography, Box } from "@suid/material";
 import { Center } from "./Center";
 
-export function UnitKeys(props: {
-  unit: string;
-  setUnit: (unit: string) => void;
+export function UnitsKeys(props: {
+  units: string;
+  setUnits: (unit: string) => void;
 }) {
-  const currentUnit = () => props.unit;
+  const currentUnits = () => props.units;
 
-  const setCurrentUnit = (unit: string) => props.setUnit(unit);
+  const setCurrentUnits = (unit: string) => props.setUnits(unit);
 
   function enterUnit(unit: string) {
     if (unit === "C") {
-      setCurrentUnit("");
-    } else if (currentUnit() === "0" && unit === ".") {
-      setCurrentUnit("0" + unit);
-    } else if (currentUnit() === "0") {
-      setCurrentUnit("" + unit);
-    } else if (unit === "." && currentUnit().includes(".")) {
+      setCurrentUnits("");
+    } else if (currentUnits() === "0" && unit === ".") {
+      setCurrentUnits("0" + unit);
+    } else if (currentUnits() === "0") {
+      setCurrentUnits("" + unit);
+    } else if (unit === "." && currentUnits().includes(".")) {
       //Nothing
-    } else if (unit === "." && !currentUnit().includes(".")) {
-      setCurrentUnit(currentUnit() + unit);
+    } else if (unit === "." && !currentUnits().includes(".")) {
+      setCurrentUnits(currentUnits() + unit);
     } else {
-      setCurrentUnit(currentUnit() + unit);
+      setCurrentUnits(currentUnits() + unit);
     }
   }
 
