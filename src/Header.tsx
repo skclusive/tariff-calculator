@@ -12,6 +12,7 @@ import {
 import { Brightness4, Brightness7 } from "@suid/icons-material";
 import { Logo } from "./Logo";
 import { ThemeModeContext } from "./ThemeContext";
+import { tariffYears } from "./Tariff";
 
 export function Header(props: {
   year: string;
@@ -60,7 +61,7 @@ export function Header(props: {
             open={Boolean(anchorElUser())}
             onClose={handleCloseYear}
           >
-            <For each={["2024", "2020"]}>
+            <For each={[...tariffYears]}>
               {(year) => (
                 <MenuItem
                   onClick={() => handleSelectYear(year)}

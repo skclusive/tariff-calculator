@@ -6,11 +6,11 @@ import { UnitsKeys } from "./UnitsKeys";
 import { Results } from "./Results";
 import { Header } from "./Header";
 import { Copyright } from "./Copyright";
-import { calculate } from "./Tariff";
+import { calculate, tariffYears } from "./Tariff";
 import { Chart } from "./Chart";
 
 export const Main = () => {
-  const [currentYear, setCurrentYear] = createSignal("2024");
+  const [currentYear, setCurrentYear] = createSignal(tariffYears[0]);
   const [currentUnits, setCurrentUnits] = createSignal("");
 
   function toUnits() {
@@ -20,7 +20,7 @@ export const Main = () => {
 
   const result = createMemo(() =>
     calculate({
-      year: parseInt(currentYear()),
+      year: currentYear(),
       units: parseFloat(toUnits() || "0"),
     })
   );

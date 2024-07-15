@@ -21,14 +21,31 @@ export type TariffByYear = {
 };
 
 export type Calculated = {
-  year: number;
+  year: string;
   units: number;
   amount: number;
   slabs: SlabResult[];
 };
 
 export const tariffs: TariffByYear = {
-  2024: {
+  "2024-2025": {
+    "<=500": [
+      { name: "Free", from: 0, to: 100, rate: 0 },
+      { name: "101-200", from: 100, to: 200, rate: 2.25 },
+      { name: "201-400", from: 200, to: 400, rate: 4.5 },
+      { name: "401-500", from: 400, to: 500, rate: 6 },
+    ],
+    ">500": [
+      { name: "Free", from: 0, to: 100, rate: 0 },
+      { name: "101-400", from: 100, to: 400, rate: 4.80 },
+      { name: "401-500", from: 400, to: 500, rate: 6.45 },
+      { name: "501-600", from: 500, to: 600, rate: 8.55 },
+      { name: "601-800", from: 600, to: 800, rate: 9.65 },
+      { name: "801-1000", from: 800, to: 1000, rate: 10.70 },
+      { name: "1001-above", from: 1000, to: Number.MAX_VALUE, rate: 11.80 },
+    ],
+  },
+  "2023-2024": {
     "<=500": [
       { name: "Free", from: 0, to: 100, rate: 0 },
       { name: "101-200", from: 100, to: 200, rate: 2.25 },
@@ -45,7 +62,7 @@ export const tariffs: TariffByYear = {
       { name: "1001-above", from: 1000, to: Number.MAX_VALUE, rate: 11 },
     ],
   },
-  2020: {
+  "2022-2023": {
     "<=500": [
       { name: "Free", from: 0, to: 100, rate: 0 },
       { name: "101-200", from: 100, to: 200, rate: 2.25 }, // assumption rate
@@ -101,7 +118,7 @@ export const calculate = ({
   year,
   units,
 }: {
-  year: number;
+  year: string;
   units: number;
 }): Calculated => {
   const slabs = units <= 500 ? tariffs[year]["<=500"] : tariffs[year][">500"];

@@ -27,7 +27,7 @@ export function Chart(props: { units: string }) {
   const results = createMemo(() =>
     tariffYears.map((year) =>
       calculate({
-        year: parseInt(year),
+        year,
         units: parseFloat(props.units?.trim() || "0"),
       })
     )

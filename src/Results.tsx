@@ -13,7 +13,7 @@ import { calculate } from "./Tariff";
 export function Results(props: { units: string; year: string }) {
   const result = createMemo(() =>
     calculate({
-      year: parseInt(props.year),
+      year: props.year,
       units: parseFloat(props.units?.trim() || "0"),
     })
   );
