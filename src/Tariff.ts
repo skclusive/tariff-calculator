@@ -31,18 +31,18 @@ export const tariffs: TariffByYear = {
   "2024-2025": {
     "<=500": [
       { name: "Free", from: 0, to: 100, rate: 0 },
-      { name: "101-200", from: 100, to: 200, rate: 2.25 },
-      { name: "201-400", from: 200, to: 400, rate: 4.5 },
-      { name: "401-500", from: 400, to: 500, rate: 6 },
+      { name: "101-200", from: 100, to: 200, rate: 2.35 },
+      { name: "201-400", from: 200, to: 400, rate: 4.7 },
+      { name: "401-500", from: 400, to: 500, rate: 6.3 },
     ],
     ">500": [
       { name: "Free", from: 0, to: 100, rate: 0 },
-      { name: "101-400", from: 100, to: 400, rate: 4.80 },
-      { name: "401-500", from: 400, to: 500, rate: 6.45 },
-      { name: "501-600", from: 500, to: 600, rate: 8.55 },
-      { name: "601-800", from: 600, to: 800, rate: 9.65 },
-      { name: "801-1000", from: 800, to: 1000, rate: 10.70 },
-      { name: "1001-above", from: 1000, to: Number.MAX_VALUE, rate: 11.80 },
+      { name: "101-400", from: 100, to: 400, rate: 4.7 },
+      { name: "401-500", from: 400, to: 500, rate: 6.3 },
+      { name: "501-600", from: 500, to: 600, rate: 8.4 },
+      { name: "601-800", from: 600, to: 800, rate: 9.45 },
+      { name: "801-1000", from: 800, to: 1000, rate: 10.5 },
+      { name: "1001-above", from: 1000, to: Number.MAX_VALUE, rate: 11.55 },
     ],
   },
   "2023-2024": {
@@ -94,7 +94,7 @@ export const runSlab = (units: number, slab: Slab): SlabResult => {
     rate,
     consumed,
     balance,
-    amount: Math.round(amount),
+    amount: Number(amount.toFixed(2)),
   };
 };
 
@@ -111,7 +111,7 @@ export const runSlabs = (total: number, slabs: Slab[]): SlabResult[] => {
 };
 
 export const sumSlabs = (slabs: SlabResult[]): number => {
-  return Math.floor(slabs.reduce((total, { amount }) => total + amount, 0));
+  return Number(Number(slabs.reduce((total, { amount }) => total + amount, 0)).toFixed(2));
 };
 
 export const calculate = ({
