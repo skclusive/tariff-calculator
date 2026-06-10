@@ -28,6 +28,23 @@ export type Calculated = {
 };
 
 export const tariffs: TariffByYear = {
+    "2025-2026": {
+    "<=500": [
+      { name: "Free", from: 0, to: 100, rate: 0 },
+      { name: "Free", from: 100, to: 200, rate: 0 },
+      { name: "201-400", from: 200, to: 400, rate: 4.7 },
+      { name: "401-500", from: 400, to: 500, rate: 6.3 },
+    ],
+    ">500": [
+      { name: "Free", from: 0, to: 100, rate: 0 },
+      { name: "101-400", from: 100, to: 400, rate: 4.7 },
+      { name: "401-500", from: 400, to: 500, rate: 6.3 },
+      { name: "501-600", from: 500, to: 600, rate: 8.4 },
+      { name: "601-800", from: 600, to: 800, rate: 9.45 },
+      { name: "801-1000", from: 800, to: 1000, rate: 10.5 },
+      { name: "1001-above", from: 1000, to: Number.MAX_VALUE, rate: 11.55 },
+    ],
+  },
   "2024-2025": {
     "<=500": [
       { name: "Free", from: 0, to: 100, rate: 0 },
